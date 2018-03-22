@@ -9,11 +9,11 @@ const db = pgp(connectionURL);
 
 const findAll = () => {
   //let offset = (page - 1) * 2;
-  return db.any("SELECT * FROM player_table WHERE ADP <999 ORDER BY ADP ASC");
+  return db.any("SELECT * FROM hitter_table WHERE ADP <999 ORDER BY ADP ASC");
 };
 
 const findById = id => {
-  let idFind = db.one("SELECT * FROM player_table WHERE playerid = $1", [id]);
+  let idFind = db.one("SELECT * FROM hitter_table WHERE playerid = $1", [id]);
   let fP = `https://www.fangraphs.com/statss.aspx?playerid=${idFind}`;
   return fP;
 };

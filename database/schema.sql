@@ -3,8 +3,11 @@ CREATE DATABASE mlb_db;
 \c mlb_db;
 
 DROP TABLE player_table;
+DROP TABLE batter_table;
+DROP TABLE pitcher_table;
+DROP TABLE news_table;
 
-CREATE TABLE player_table (
+CREATE TABLE batter_table (
     Name VARCHAR(255),
     Team VARCHAR(255),
     G INT,
@@ -30,5 +33,30 @@ CREATE TABLE player_table (
     BsR NUMERIC(2, 1),
     WAR NUMERIC(2, 1),
     ADP NUMERIC(4, 1),
-    playerid BIGSERIAL PRIMARY KEY
+    playerid VARCHAR(255)
+);
+
+CREATE TABLE pitcher_table (
+    Name VARCHAR(255),
+    Team VARCHAR(255),
+    W NUMERIC(3, 1),
+    L NUMERIC(3, 1),
+    ERA NUMERIC(3, 2),
+    GS NUMERIC(3, 1),
+    G NUMERIC(3, 1),
+    SV NUMERIC(3, 1),
+    IP NUMERIC(4, 1),
+    H NUMERIC(4, 1),
+    ER NUMERIC(4, 1),
+    HR NUMERIC(3, 1),
+    SO NUMERIC(4, 1),
+    BB NUMERIC(3, 1),
+    WHIP NUMERIC(3, 2),
+    K_9 NUMERIC(4, 2),
+    BB_9 NUMERIC(4, 2),
+    FIP NUMERIC(3, 2),
+    WAR NUMERIC(2, 1),
+    RA9_WAR NUMERIC(2, 1),
+    ADP NUMERIC(4, 1),
+    playerid VARCHAR(255)
 );
