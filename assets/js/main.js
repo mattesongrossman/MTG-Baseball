@@ -16,3 +16,7 @@
 //   "/Users/mattesongrossman/wdi/unit02/projects/MTG/database/playerData.json"
 // );
 // console.log(playerData);
+console.log("This script loaded");
+let logMe = () => {
+  console.log("Hi");
+};
