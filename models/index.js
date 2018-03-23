@@ -1,6 +1,4 @@
-const pgp = require("pg-promise")({});
-const connectionURL = "postgres://localhost:5432/mlb_db";
-const db = pgp(connectionURL);
+const db = require("../database/connection.js");
 
 const findAll = () => {
   return db.any("SELECT * FROM pitcher_table WHERE ADP <999 ORDER BY ADP ASC");
