@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>MTG Baseball</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -217,14 +217,14 @@
             <td><%=playerData[i].sb%></td>
             <td><%=playerData[i].woba%></td>
             <td><%=playerData[i].war%></td>
-            <td onclick = "this.style.background = '#007bff'"></td>
+            <td value = "<%=playerData[i].playerid%>"></td>
             </tr>
             <% } %>
           </tbody>
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Brought to you by...</div>
+        <div class="card-footer small text-muted">Brought to you by MTG</div>
       </div>
     </div>
     <!-- /.container-fluid-->
@@ -270,6 +270,7 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/main.js"></script>
   </div>
 </body>
 

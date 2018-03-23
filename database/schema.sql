@@ -33,7 +33,8 @@ CREATE TABLE batter_table (
     BsR NUMERIC(2, 1),
     WAR NUMERIC(2, 1),
     ADP NUMERIC(4, 1),
-    playerid VARCHAR(255)
+    playerid VARCHAR(255),
+    drafted BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE pitcher_table (
@@ -58,5 +59,6 @@ CREATE TABLE pitcher_table (
     WAR NUMERIC(2, 1),
     RA9_WAR NUMERIC(2, 1),
     ADP NUMERIC(4, 1),
-    playerid VARCHAR(255)
+    playerid VARCHAR(255),
+    drafted BOOLEAN NOT NULL DEFAULT FALSE
 );
