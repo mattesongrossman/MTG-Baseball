@@ -33,7 +33,7 @@ CREATE TABLE batters (
     BsR NUMERIC(2, 1),
     WAR NUMERIC(2, 1),
     ADP NUMERIC(4, 1),
-    playerid VARCHAR(255),
+    playerid VARCHAR(255) PRIMARY KEY,
     drafted BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -59,11 +59,11 @@ CREATE TABLE pitchers (
     WAR NUMERIC(2, 1),
     RA9_WAR NUMERIC(2, 1),
     ADP NUMERIC(4, 1),
-    playerid VARCHAR(255),
+    playerid VARCHAR(255) PRIMARY KEY,
     drafted BOOLEAN NOT NULL DEFAULT FALSE
 );
 CREATE TABLE teams(
   Name VARCHAR(255),
   Team VARCHAR(255),
-  playerid VARCHAR(255),
+  playerid VARCHAR(255) PRIMARY KEY
 );
