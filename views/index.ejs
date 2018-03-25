@@ -103,6 +103,7 @@
     <div class="container-fluid">
 
       <div class="card mb-3">
+
         <div class="card-header">
 
           <div class="card-header">
@@ -110,9 +111,31 @@
            </div>
 
         <div class="card-body">
-
+          <!-- Card Columns Example Social Feed-->
+          <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> News Feed</div>
+          <hr class="mt-2">
+          <div class="card-columns">
+            <!-- Example Social Card-->
+            <% for(let i= 0; i < newsData.totalResults; i++){ %>
+            <div class="card mb-3" id = "article-1">
+              <a href="<%=newsData.articles[i].url%>">
+                <img class="card-img-top img-fluid w-100" src="<%=newsData.articles[i].urlToImage%>" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="<%=newsData.articles[i].url%>"><%=newsData.articles[i].title%></a></h6>
+                <p class="card-text small"><%=newsData.articles[i].description%>
+                  <a href="#"></a>
+                </p>
+              </div>
+              <div class="card-footer small text-muted"><%=newsData.articles[i].publishedAt%></div>
+            </div>
+            <% } %>
+          <!-- /Card Columns-->
         </div>
-        <div class="card-footer small text-muted">Brought to you by MTG</div>
+        <div class="col-lg-4">
+        </div>
+        <div class="card-footer small text-muted">Powered by newsapi.org</div>
       </div>
     </div>
     <!-- /.container-fluid-->

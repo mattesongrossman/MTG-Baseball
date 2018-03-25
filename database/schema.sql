@@ -2,12 +2,12 @@ CREATE DATABASE mlb_db;
 
 \c mlb_db;
 
-DROP TABLE player_table;
-DROP TABLE batter_table;
-DROP TABLE pitcher_table;
+DROP TABLE teams;
+DROP TABLE batters;
+DROP TABLE pitchers;
 DROP TABLE news_table;
 
-CREATE TABLE batter_table (
+CREATE TABLE batters (
     Name VARCHAR(255),
     Team VARCHAR(255),
     G INT,
@@ -37,7 +37,7 @@ CREATE TABLE batter_table (
     drafted BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE pitcher_table (
+CREATE TABLE pitchers (
     Name VARCHAR(255),
     Team VARCHAR(255),
     W NUMERIC(3, 1),
@@ -61,4 +61,9 @@ CREATE TABLE pitcher_table (
     ADP NUMERIC(4, 1),
     playerid VARCHAR(255),
     drafted BOOLEAN NOT NULL DEFAULT FALSE
+);
+CREATE TABLE teams(
+  Name VARCHAR(255),
+  Team VARCHAR(255),
+  playerid VARCHAR(255),
 );
