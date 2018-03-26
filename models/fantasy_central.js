@@ -25,10 +25,13 @@ const findBatterById = id => {
   return db.one("SELECT name FROM batters WHERE playerid = $1", [id]);
 };
 
-const addPlayer = () => {
-  findBatterById($("button").val()).then(add => {
-    db.one(`INSERT INTO fantasy_team(name) VALUES($[add])`, [add]);
-  });
+const addPlayer = (name, team, playerid) => {
+  return db.none(
+    `INSERT INTO fantasy_team (name, team, playerid) VALUES($1, $2, $3)`,
+    [name],
+    [team],
+    [playerid]
+  );
 };
 
 const getMyTeam = () => {

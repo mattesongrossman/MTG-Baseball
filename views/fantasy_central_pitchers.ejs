@@ -142,8 +142,10 @@
               <td><%=playerData[i].k_9%></td>
               <td><%=playerData[i].war%></td>
               <td value = "<%=playerData[i].playerid%>"></td>
-              <td><button class="btn-primary" type="button" value = "<%=playerData[i].playerid%>">Add to Team</button></td>
-              </tr>
+              <td><form action="/myTeam" method="post"><fieldset>
+                <input type="hidden" name="playerName" value = "<%=playerData[i].name%>">
+                <button class="btn-primary" type="button">Add to Team</button>
+                <fieldset></form></td>
               <% } %>
               </tbody>
               </table>

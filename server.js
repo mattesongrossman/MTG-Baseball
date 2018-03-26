@@ -68,21 +68,23 @@ app.get("/fantasy_central_pitchers", (request, response) => {
 });
 
 //GET MY TEAM PAGE
-app.get("/MyTeam", (request, response) => {
+app.get("/myTeam", (request, response) => {
   getMyTeam().then(playerData => {
     response.render("myTeam", { playerData: playerData });
   });
 });
 
 //ADD PLAYER TO TEAM DATABASE
-app.post("/MyTeam", (request, response) => {
-  addPlayer()
-    .then(data => {
-      response.redirect(`/myTeam`);
-    })
-    .catch(error => {
-      response.send(error);
-    });
+app.post("/myTeam", urlencodedParser, (request, response) => {
+  const name = request.body.name;
+  const team = request.body.team;
+  const playerId = Number(request.body.playerid);
+  addPlayer(name, team, playerId).then(data => {
+    response.redirect(`/myTeam`);
+  });
+  // .catch(error => {
+  //   response.send(error);
+  // });
 });
 
 //LINKS PAGE

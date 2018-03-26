@@ -139,7 +139,12 @@
             <td><%=playerData[i].woba%></td>
             <td><%=playerData[i].war%></td>
             <td value = "<%=playerData[i].playerid%>"></td>
-            <td><form action="/myTeam" method="get"><button class="btn-primary" type="button" value = "<%=playerData[i].playerid%>">Add to Team</button></form></td>
+            <td><form action="/myTeam" method="post"><fieldset>
+              <input type="hidden" name="name" value = "<%=playerData[i].name%>">
+              <input type="hidden" name="team" value = "<%=playerData[i].team%>">
+              <input type="hidden" name="playerId" value = "<%=playerData[i].playerid%>">
+              <button name="submit" type="submit" class="btn-primary">Add to Team</button>
+            </fieldset></form></td>
             </tr>
             <% } %>
           </tbody>
