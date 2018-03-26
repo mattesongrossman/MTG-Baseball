@@ -25,17 +25,19 @@ const findBatterById = id => {
   return db.one("SELECT name FROM batters WHERE playerid = $1", [id]);
 };
 
-const addPlayer = (name, team, playerid) => {
+const addPlayer = data => {
   return db.none(
-    `INSERT INTO fantasy_team (name, team, playerid) VALUES($1, $2, $3)`,
-    [name],
-    [team],
-    [playerid]
+    `INSERT INTO fantasy_team (name, team, playerid) VALUES($[name], $[team], $[playerid])`,
+    data
   );
 };
 
 const getMyTeam = () => {
   return db.any("SELECT * FROM fantasy_team");
+};
+
+const deletePlayer = id => {
+  return db.one("DELETE FROM fantasy_team WHERE playerid = $1", [id]);
 };
 
 module.exports = {
@@ -44,5 +46,6 @@ module.exports = {
   draftStatus: draftStatus,
   findBatterById: findBatterById,
   getMyTeam: getMyTeam,
-  addPlayer: addPlayer
+  addPlayer: addPlayer,
+  deletePlayer: deletePlayer
 };

@@ -4,15 +4,16 @@ const PORT = 3000;
 const bodyParser = require("body-parser");
 const players = require("./models/fantasy_central");
 const news = require("./models/index");
+const fetch = require("node-fetch");
+const moment = require("moment");
 const findAll = players.findAll;
 const findAllPitchers = players.findAllPitchers;
 const draftStatus = players.draftStatus;
 const getNews = news.getNews;
-const fetch = require("node-fetch");
-const moment = require("moment");
 const findBatterById = players.findBatterById;
 const getMyTeam = players.getMyTeam;
 const addPlayer = players.addPlayer;
+const deletePlayer = players.deletePlayer;
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const methodOverride = require("method-override");
@@ -76,15 +77,23 @@ app.get("/myTeam", (request, response) => {
 
 //ADD PLAYER TO TEAM DATABASE
 app.post("/myTeam", urlencodedParser, (request, response) => {
-  const name = request.body.name;
-  const team = request.body.team;
-  const playerId = Number(request.body.playerid);
-  addPlayer(name, team, playerId).then(data => {
-    response.redirect(`/myTeam`);
-  });
-  // .catch(error => {
-  //   response.send(error);
-  // });
+  // const name = request.body.name;
+  // const team = request.body.team;
+  // const playerId = Number(request.body.playerid);
+  addPlayer(request.body)
+    .then(data => {
+      response.redirect(`/myTeam`);
+    })
+    .catch(error => {
+      response.send(error);
+    });
+});
+
+//DELETE PLAYER FROM TEAM
+app.delete("/myTeam/:id", (request, response) => {
+  const playerId = request.params.id;
+  deletePlayer(playerId);
+  response.redirect(`/myTeam`);
 });
 
 //LINKS PAGE

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,7 +84,7 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> 2018 Stats</div>
+          <i class="fa fa-table"></i> 2018 Squad</div>
           <!-- Breadcrumbs-->
           <!-- <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -120,7 +118,9 @@
             <tr>
             <td><a href = "https://www.fangraphs.com/statss.aspx?playerid=<%=playerData[i].playerid%>"><%=playerData[i].name%></a></td>
             <td><%=playerData[i].team%></td>
-            <td><button class="btn-primary" type="button" value = "<%=playerData[i].playerid%>">Remove From Team</button></td>
+            <td><form method="POST" action="/myTeam/<%=playerData[i].playerid%>?_method=DELETE">
+              <button class="btn-primary">Remove From Team</button>
+            </form></td>
             </tr>
             <% } %>
           </tbody>
