@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,8 +61,8 @@
           </a>
         </li>
       </ul>
-      <!-- <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+        <!-- <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
               <input class="form-control" type="text" placeholder="Search for...">
@@ -72,7 +74,11 @@
             </div>
           </form>
         </li>
-      </ul> -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li> -->
+      </ul>
     </div>
   </nav>
   <div class="content-wrapper">
@@ -80,66 +86,41 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> 2018 Steamer Projections</div>
+          <i class="fa fa-table"></i> 2018 Stats</div>
           <!-- Breadcrumbs-->
-          <ol class="breadcrumb">
+          <!-- <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="/fantasy_central" >Batters</a>
           </li>
           <li class="breadcrumb-item active">
             <a href="/fantasy_central_pitchers">Pitchers</a>
           </li>
-          </ol>
+          </ol> -->
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
             <tr>
-              <th>ADP</th>
+
               <th>Name</th>
               <th>Team</th>
-              <th>AVG</th>
-              <th>OBP</th>
-              <th>SLG</th>
-              <th>OPS</th>
-              <th>SB</th>
-              <th>wOBA</th>
-              <th>WAR</th>
-              <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>ADP</th>
               <th>Name</th>
               <th>Team</th>
-              <th>AVG</th>
-              <th>OBP</th>
-              <th>SLG</th>
-              <th>OPS</th>
-              <th>SB</th>
-              <th>wOBA</th>
-              <th>WAR</th>
-              <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Remove</th>
+
             </tr>
           </tfoot>
           <tbody>
             <% for(let i=0; i< playerData.length ; i++) { %>
             <tr>
-            <td><%=playerData[i].adp%></td>
             <td><a href = "https://www.fangraphs.com/statss.aspx?playerid=<%=playerData[i].playerid%>"><%=playerData[i].name%></a></td>
             <td><%=playerData[i].team%></td>
-            <td><%=playerData[i].avg%></td>
-            <td><%=playerData[i].obp%></td>
-            <td><%=playerData[i].slg%></td>
-            <td><%=playerData[i].ops%></td>
-            <td><%=playerData[i].sb%></td>
-            <td><%=playerData[i].woba%></td>
-            <td><%=playerData[i].war%></td>
-            <td value = "<%=playerData[i].playerid%>"></td>
-            <td><form action="/myTeam" method="get"><button class="btn-primary" type="button" value = "<%=playerData[i].playerid%>">Add to Team</button></form></td>
+            <td><button class="btn-primary" type="button" value = "<%=playerData[i].playerid%>">Remove From Team</button></td>
             </tr>
             <% } %>
           </tbody>
@@ -176,7 +157,6 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/main.js"></script>
   </div>
 </body>
 

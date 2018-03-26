@@ -1,16 +1,6 @@
 const db = require("../database/connection.js");
 const fetch = require("node-fetch");
 
-const findAll = () => {
-  return db.any("SELECT * FROM pitchers WHERE ADP <999 ORDER BY ADP ASC");
-};
-
-const findById = id => {
-  let idFind = db.one("SELECT * FROM pitchers WHERE playerid = $1", [id]);
-  let fP = `https://www.fangraphs.com/statss.aspx?playerid=${idFind}`;
-  return fP;
-};
-
 let getNews = () => {
   let link =
     "https://newsapi.org/v2/top-headlines?sources=espn&apiKey=596765967a80416c8c7f60c9fc7cba2a";
@@ -32,7 +22,5 @@ let getNews = () => {
 };
 
 module.exports = {
-  findAll: findAll,
-  findById: findById,
   getNews: getNews
 };

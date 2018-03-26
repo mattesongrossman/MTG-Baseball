@@ -65,5 +65,12 @@ CREATE TABLE pitchers (
 CREATE TABLE teams(
   Name VARCHAR(255),
   Team VARCHAR(255),
+  playerid VARCHAR(255) PRIMARY KEY,
+  batterid VARCHAR(255) REFERENCES batters(playerid),
+  pitcherid VARCHAR(255) REFERENCES pitchers(playerid)
+);
+CREATE TABLE fantasy_team(
+  Name VARCHAR(255),
+  Team VARCHAR(255),
   playerid VARCHAR(255) PRIMARY KEY
 );
