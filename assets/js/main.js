@@ -22,3 +22,7 @@ let draftedStatus = () => {
 $("#dataTable").dataTable({
   pageLength: 25
 });
+
+if ($("button").val() == "false") {
+  $("button").css("background-color", "red");
+}

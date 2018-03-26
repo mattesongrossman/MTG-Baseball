@@ -141,10 +141,10 @@
               <td><%=playerData[i].whip%></td>
               <td><%=playerData[i].k_9%></td>
               <td><%=playerData[i].war%></td>
-              <td id = "draftedCell" value = "<%=playerData[i].drafted%>"><form id = "draftedStatus" action="/fantasy_central_pitchers/<%=playerData[i].playerid%>" method="POST"><fieldset>
+              <td id = "draftedCell" value = "<%=playerData[i].drafted%>"><form id = "draftedStatus" action="/fantasy_central_pitchers/<%=playerData[i].playerid%>?_method=PUT" method="POST"><fieldset>
                 <input type="hidden" name="drafted" value = "<%=playerData[i].drafted%>">
                 <button name="submit" type="submit" class="btn-primary" onclick = "draftedStatus();"><%=playerData[i].drafted%></button>
-              </fieldset></td>
+              </fieldset></form></td>
               <td><form action="/myTeam" method="POST"><fieldset>
                 <input type="hidden" name="name" value = "<%=playerData[i].name%>">
                 <input type="hidden" name="team" value = "<%=playerData[i].team%>">
