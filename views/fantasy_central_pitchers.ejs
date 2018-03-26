@@ -107,7 +107,7 @@
               <th>K_9</th>
               <th>WAR</th>
               <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Team</th>
               </tr>
               </thead>
               <tfoot>
@@ -124,7 +124,7 @@
               <th>K_9</th>
               <th>WAR</th>
               <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Team</th>
               </tr>
               </tfoot>
               <tbody>
@@ -141,11 +141,17 @@
               <td><%=playerData[i].whip%></td>
               <td><%=playerData[i].k_9%></td>
               <td><%=playerData[i].war%></td>
-              <td value = "<%=playerData[i].playerid%>"></td>
-              <td><form action="/myTeam" method="post"><fieldset>
-                <input type="hidden" name="playerName" value = "<%=playerData[i].name%>">
-                <button class="btn-primary" type="button">Add to Team</button>
-                <fieldset></form></td>
+              <td id = "draftedCell" value = "<%=playerData[i].drafted%>"><form id = "draftedStatus" action="/fantasy_central_pitchers/<%=playerData[i].playerid%>" method="POST"><fieldset>
+                <input type="hidden" name="drafted" value = "<%=playerData[i].drafted%>">
+                <button name="submit" type="submit" class="btn-primary" onclick = "draftedStatus();"><%=playerData[i].drafted%></button>
+              </fieldset></td>
+              <td><form action="/myTeam" method="POST"><fieldset>
+                <input type="hidden" name="name" value = "<%=playerData[i].name%>">
+                <input type="hidden" name="team" value = "<%=playerData[i].team%>">
+                <input type="hidden" name="playerid" value = "<%=playerData[i].playerid%>">
+                <button name="submit" type="submit" class="btn-primary">Add to Team</button>
+              </fieldset></form></td>
+              </tr>
               <% } %>
               </tbody>
               </table>

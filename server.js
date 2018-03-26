@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = 4567;
 const bodyParser = require("body-parser");
 const players = require("./models/fantasy_central");
 const news = require("./models/index");
@@ -8,7 +8,8 @@ const fetch = require("node-fetch");
 const moment = require("moment");
 const findAll = players.findAll;
 const findAllPitchers = players.findAllPitchers;
-const draftStatus = players.draftStatus;
+const batterDraftStatus = players.batterDraftStatus;
+const pitcherDraftStatus = players.pitcherDraftStatus;
 const getNews = news.getNews;
 const findBatterById = players.findBatterById;
 const getMyTeam = players.getMyTeam;
@@ -88,6 +89,26 @@ app.post("/myTeam", urlencodedParser, (request, response) => {
       response.send(error);
     });
 });
+
+//EDIT DRAFT STATUS - BATTERS
+app.put("/fantasy_central/:id", urlencodedParser, (request, response) => {
+  const playerId = request.params.id;
+  const draftStatus = request.body.drafted;
+  batterDraftStatus(playerId, draftStatus);
+  response.redirect(`/fantasy_central`);
+});
+
+//EDIT DRAFT STATUS - PITCHERS
+app.put(
+  "/fantasy_central_pitchers/:id",
+  urlencodedParser,
+  (request, response) => {
+    const playerId = request.params.id;
+    const draftStatus = request.body.drafted;
+    pitcherDraftStatus(playerId, draftStatus);
+    response.redirect(`/fantasy_central_pitchers`);
+  }
+);
 
 //DELETE PLAYER FROM TEAM
 app.delete("/myTeam/:id", (request, response) => {

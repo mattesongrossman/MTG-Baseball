@@ -106,7 +106,7 @@
               <th>wOBA</th>
               <th>WAR</th>
               <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Team</th>
             </tr>
           </thead>
           <tfoot>
@@ -122,7 +122,7 @@
               <th>wOBA</th>
               <th>WAR</th>
               <th>Drafted?</th>
-              <th>Draft</th>
+              <th>Team</th>
             </tr>
           </tfoot>
           <tbody>
@@ -138,7 +138,12 @@
             <td><%=playerData[i].sb%></td>
             <td><%=playerData[i].woba%></td>
             <td><%=playerData[i].war%></td>
-            <td value = "<%=playerData[i].playerid%>"></td>
+            <td id = "draftedCell" value = "<%=playerData[i].drafted%>">
+              <form id = "draftedStatus" action="/fantasy_central/<%=playerData[i].playerid%>?_method=PUT" method="POST"><fieldset>
+              <input type="hidden" name="drafted" value = "<%=playerData[i].drafted%>">
+              <button name="submit" type="submit" class="btn-primary" onclick = "draftedStatus();"><%=playerData[i].drafted%></button>
+            </fieldset></form>
+          </td>
             <td><form action="/myTeam" method="POST"><fieldset>
               <input type="hidden" name="name" value = "<%=playerData[i].name%>">
               <input type="hidden" name="team" value = "<%=playerData[i].team%>">

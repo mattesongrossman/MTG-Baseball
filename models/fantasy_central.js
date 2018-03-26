@@ -14,9 +14,28 @@ const findAllPlayers = () => {
   );
 };
 
-let draftStatus = id => {
-  console.log("hi");
-  return db.none("UPDATE batters SET drafted = true WHERE playerid = $1", [id]);
+//EDIT DRAFT STATUS
+const batterDraftStatus = (id, status) => {
+  if (status == "true") {
+    return db.none("UPDATE batters SET drafted = false WHERE playerid = $1", [
+      id
+    ]);
+  } else {
+    return db.none("UPDATE batters SET drafted = true WHERE playerid = $1", [
+      id
+    ]);
+  }
+};
+const pitcherDraftStatus = (id, status) => {
+  if (status == "true") {
+    return db.none("UPDATE pitchers SET drafted = false WHERE playerid = $1", [
+      id
+    ]);
+  } else {
+    return db.none("UPDATE pitchers SET drafted = true WHERE playerid = $1", [
+      id
+    ]);
+  }
 };
 
 let addToTeam = () => {};
@@ -43,7 +62,8 @@ const deletePlayer = id => {
 module.exports = {
   findAll: findAll,
   findAllPitchers: findAllPitchers,
-  draftStatus: draftStatus,
+  batterDraftStatus: batterDraftStatus,
+  pitcherDraftStatus: pitcherDraftStatus,
   findBatterById: findBatterById,
   getMyTeam: getMyTeam,
   addPlayer: addPlayer,
