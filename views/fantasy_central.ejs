@@ -141,7 +141,7 @@
             <td id = "draftedCell" value = "<%=playerData[i].drafted%>">
               <form id = "draftedStatus" action="/fantasy_central/<%=playerData[i].playerid%>?_method=PUT" method="POST"><fieldset>
               <input type="hidden" name="drafted" value = "<%=playerData[i].drafted%>">
-              <button name="submit" type="submit" class="btn-primary" onclick = "draftedStatus();"><%=playerData[i].drafted%></button>
+              <button name="submit" type="submit" class="btn-primary draftButton" onclick = "draftedStatus();" value = "<%=playerData[i].drafted%>"><%=playerData[i].drafted%></button>
             </fieldset></form>
           </td>
             <td><form action="/myTeam" method="POST"><fieldset>

@@ -26,3 +26,16 @@ $("#dataTable").dataTable({
 if ($("button").val() == "false") {
   $("button").css("background-color", "red");
 }
+
+// $("#draftedStatus").on("submit", evt => {
+//   // evt.preventDefault();
+//   // make ajax request to the /fantasy_central_pitchers/:id" route
+//   // send a PUT request with the player data hitting that endpoint.
+// });
+
+$("button").click(evt => {
+  let buttonTarget = (evt.target.innerHTML = "true");
+  buttonTarget
+    ? (evt.target.innerHTML = "false")
+    : (evt.target.innerHTML = "true");
+});

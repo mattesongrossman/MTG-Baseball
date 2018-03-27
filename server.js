@@ -56,6 +56,7 @@ app.get("/fantasy_central", (request, response) => {
     response.render("fantasy_central", { playerData: playerData });
   });
 });
+
 app.post("/fantasy_central", (request, response) => {
   findAll().then(playerData => {
     response.render("fantasy_central", { playerData: playerData });
@@ -86,7 +87,7 @@ app.post("/myTeam", urlencodedParser, (request, response) => {
       response.redirect(`/myTeam`);
     })
     .catch(error => {
-      response.send(error);
+      response.send("Player already added to your team!");
     });
 });
 
