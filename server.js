@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 4567;
+const PORT = process.env.PORT || 4567;
 const bodyParser = require("body-parser");
 const players = require("./models/fantasy_central");
 const news = require("./models/index");
