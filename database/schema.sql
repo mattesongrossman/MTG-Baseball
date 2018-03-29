@@ -1,6 +1,6 @@
-CREATE DATABASE mlb_db;
-
-\c mlb_db;
+-- CREATE DATABASE mlb_db;
+--
+-- \c mlb_db;
 
 DROP TABLE teams;
 DROP TABLE batters;
